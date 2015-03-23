@@ -54,11 +54,11 @@ require_once("links.php");
          $("#download").click(function() {
            document.location.href="<?php echo $DOWNLOAD_LINK; ?>";
          });
+         $("#download-remote").click(function() {
+           document.location.href="<?php echo $DOWNLOAD_REMOTE_LINK; ?>";
+         });
          $("#custombtn").click(function() {
 	   loadLink($("#customurl").val());
-         });
-         $("#mouselauncher").click(function() {
-           window.open("<?php echo $MOUSE_APP_LINK; ?>",'_blank');
          });
          $("#reboot").click(function() {
            loadLink("reboot");
@@ -86,6 +86,12 @@ require_once("links.php");
         <div class="row">
           <button type="button" id="download" class="btn btn-info center-block" aria-label="Download App">
             <span class="glyphicon glyphicon-download" aria-hidden="true">&nbsp;Download App</span>
+          </button>
+        </div>
+	<br/>
+	<div class="row">
+          <button type="button" id="download-remote" class="btn btn-info center-block" aria-label="Download App">
+            <span class="glyphicon glyphicon-download" aria-hidden="true">&nbsp;Download Remote</span>
           </button>
         </div>
       </div>
@@ -127,12 +133,6 @@ require_once("links.php");
   <div class="panel-body">
 
 <div class="col-md-4 center-block">
-<div class="row">
-<button type="button" id="mouselauncher" class="btn btn-info center-block" aria-label="Open Mouse App">
-  <span class="glyphicon glyphicon-phone" aria-hidden="true">&nbsp;Open Mouse App</span>
-</button>
-</div>
-<br/>
 <div class="row">
 <button type="button" id="sleep" class="btn btn-success center-block" aria-label="Sleep TV Streamer">
   <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
