@@ -97,10 +97,6 @@ require_once("links.php");
       </div>
       <br/>
       <?php } ?>
-    <?php } else { ?>
-    <br/>
-    <br/>
-    <br/>
     <?php } ?>
 <div class="panel panel-default">
   <div class="panel-heading">
