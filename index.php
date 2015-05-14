@@ -46,9 +46,6 @@ require_once("config.php");
          $("#download").click(function() {
            document.location.href="<?php echo $DOWNLOAD_LINK; ?>";
          });
-         $("#download-remote").click(function() {
-           document.location.href="<?php echo $DOWNLOAD_REMOTE_LINK; ?>";
-         });
          $("#custombtn").click(function() {
 	   loadLink($("#customurl").val());
          });
