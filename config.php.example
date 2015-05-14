@@ -1,0 +1,9 @@
+<?php
+$APP = "Web Launcher";
+$VIEWER_HOST = "viewer";
+$DOWNLOAD_LINK = "http://avidandrew.com/downloads/WebLauncher.apk;
+
+$links = array(
+	"Example Link (Google)" => "http://google.com",
+);
+?>

@@ -1,13 +1,5 @@
 <?php
 require_once("config.php");
-
-// example links if included file doesn't contain any data
-$links = array(
-    "Example Link" => "http://www.google.com",
-);
-
-require_once("links.php");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
