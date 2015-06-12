@@ -45,7 +45,7 @@ $buttons = '<div class="panel panel-default">
 </div>
 <br/>
 </div>
-</div>
+/div>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Other Link</h3>
@@ -88,6 +88,9 @@ function isDesktop() {
       }
       #footer {
 	padding-bottom: 20px;
+      }
+      .btn {
+        margin-left: 10px;
       }
     </style>
 
