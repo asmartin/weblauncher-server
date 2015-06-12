@@ -15,7 +15,7 @@ $buttons = '<div class="panel panel-default">
 </div>
 <br/>
 <div class="row">
-<button type="button" id="mouse" class="btn btn-warning center-block" aria-label="Restart Services">
+<button type="button" id="services" class="btn btn-warning center-block" aria-label="Restart Services">
   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Restart Services</span>
 </button>
 </div>
@@ -104,8 +104,8 @@ function isDesktop() {
          $("#sleep").click(function() {
            loadLink("sleep");
          });
-         $("#mouse").click(function() {
-           loadLink("mouse");
+         $("#services").click(function() {
+           loadLink("services");
 	 });
          $("#close").click(function() {
            loadLink("close");
