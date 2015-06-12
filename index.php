@@ -1,5 +1,54 @@
 <?php
 require_once("config.php");
+
+$buttons = '<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Controls</h3>
+  </div>
+  <div class="panel-body">
+
+<div class="col-md-4 center-block">
+<div class="row">
+<button type="button" id="sleep" class="btn btn-success center-block" aria-label="Sleep TV Streamer">
+  <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
+</button>
+</div>
+<br/>
+<div class="row">
+<button type="button" id="mouse" class="btn btn-warning center-block" aria-label="Restart Services">
+  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Restart Services</span>
+</button>
+</div>
+<br/>
+<div class="row">
+<button type="button" id="close" class="btn btn-warning center-block" aria-label="Close Browser">
+  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Close Browser</span>
+</button>
+</div>
+<br/>
+<div class="row">
+<button type="button" id="reboot" class="btn btn-danger center-block" aria-label="Reboot TV Streamer">
+  <span class="glyphicon glyphicon-off" aria-hidden="true">&nbsp;Reboot Viewer</span>
+</button>
+</div>
+</div>
+<br/>
+</div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Other Link</h3>
+  </div>
+  <div id="customlink" class="panel-body row">
+      <div class="col-xs-1"><span class="span2 glyphicon glyphicon-globe"></span></div>
+      <div class="col-xs-8"><input class="span2" id="customurl" type="text" placeholder="Custom URL"></div>
+      <div class="col-xs-2"><button class="btn" id="custombtn" type="button">Go!</button></div>
+  </div>
+</div>';
+
+function isDesktop() {
+	return (strpos($_SERVER['HTTP_USER_AGENT'], "Android") === FALSE) && (strpos($_SERVER['HTTP_USER_AGENT'], "iOS") === FALSE) && (strpos($_SERVER['HTTP_USER_AGENT'], "Web Launcher") === FALSE);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,59 +141,33 @@ require_once("config.php");
     <h3 class="panel-title">Links</h3>
   </div>
   <div class="panel-body">
+
+<?php if (isDesktop()) { ?>
+
+      <div class="row">
+    <div class="col-md-10 center-block" id="vncwrapper">
+    <div style="width:<?php echo $VIEWER_VNC_WIDTH; ?>px;margin-left:auto;margin-right:auto">
+  <iframe id="vnc" src="noVNC/vnc_auto.html?host=<?php echo $VIEWER_HOST; ?>&port=5901&resize=true" width="<?php echo $VIEWER_VNC_WIDTH; ?>px" height="<?php echo $VIEWER_VNC_HEIGHT; ?>px"></iframe> 
+    <?php echo $buttons; ?>
+    </div>
+    </div>
+    <div class="col-md-2">
+  <?php } else { ?>
+     <div><div>
+  <?php } ?>
     <ul class="list-group">
       <?php foreach ($links as $title => $url) { ?>
       <li class="list-group-item"><a href="#" onclick="loadLink('<?php echo $url; ?>');"><?php echo $title; ?></a></li>
       <?php } ?>
     </ul>
+    </div>
+    </div>
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Other Link</h3>
-  </div>
-  <div id="customlink" class="panel-body row">
-      <div class="col-xs-1"><span class="span2 glyphicon glyphicon-globe"></span></div>
-      <div class="col-xs-8"><input class="span2" id="customurl" type="text" placeholder="Custom URL"></div>
-      <div class="col-xs-2"><button class="btn" id="custombtn" type="button">Go!</button></div>
-  </div>
-</div>
-<br/>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Controls</h3>
-  </div>
-  <div class="panel-body">
-
-<div class="col-md-4 center-block">
-<div class="row">
-<button type="button" id="sleep" class="btn btn-success center-block" aria-label="Sleep TV Streamer">
-  <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
-</button>
-</div>
-<br/>
-<div class="row">
-<button type="button" id="mouse" class="btn btn-warning center-block" aria-label="Restart Mouse Server">
-  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Restart Mouse Server</span>
-</button>
-</div>
-<br/>
-<div class="row">
-<button type="button" id="close" class="btn btn-warning center-block" aria-label="Close Browser">
-  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Close Browser</span>
-</button>
-</div>
-<br/>
-<div class="row">
-<button type="button" id="reboot" class="btn btn-danger center-block" aria-label="Reboot TV Streamer">
-  <span class="glyphicon glyphicon-off" aria-hidden="true">&nbsp;Reboot Viewer</span>
-</button>
-</div>
-</div>
-<br/>
-</div>
-</div>
+<?php if (!isDesktop()) { 
+	echo $buttons;
+} ?>
 <div class="text-center" id="footer">&copy; <?php echo date("Y"); ?> <a href="http://www.avidandrew.com" target="_blank">Avid Andrew</a></div>
   </body>
 </html>

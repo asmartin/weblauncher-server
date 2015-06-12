@@ -2,6 +2,8 @@
 $APP = "Web Launcher";
 $VIEWER_HOST = "viewer";
 $DOWNLOAD_LINK = "http://avidandrew.com/downloads/WebLauncher.apk;
+$VIEWER_VNC_WIDTH: 800;
+$VIEWER_VNC_HEIGHT: 600;
 
 $links = array(
 	"Example Link (Google)" => "http://google.com",
