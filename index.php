@@ -31,6 +31,7 @@ $buttons = '<div class="panel panel-default">
 </button>
 </div>
 <br/>
+' . $button_restart_vnc . '
 <div class="row">
 <button type="button" id="close" class="btn btn-warning center-block" aria-label="Close Browser">
   <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Close Browser</span>
@@ -43,7 +44,6 @@ $buttons = '<div class="panel panel-default">
 </button>
 </div>
 <br/>
-' . $button_restart_vnc . '
 </div>
 </div>
 <div class="panel panel-default">
@@ -186,8 +186,6 @@ function isDesktop() {
 
 <?php if (!isDesktop()) { 
 	echo $buttons;
-
-$("#vnc").attr("src", $("#vnc").attr("src"));
 } ?>
 <div class="text-center" id="footer">&copy; <?php echo date("Y"); ?> <a href="http://www.avidandrew.com" target="_blank">Avid Andrew</a></div>
   </body>
