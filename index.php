@@ -1,6 +1,18 @@
 <?php
 require_once("config.php");
 
+$button_restart_vnc = "";
+
+if (isDesktop()) {
+	$button_restart_vnc = '
+<div class="row">
+<button type="button" id="refreshvnc" class="btn btn-warning center-block" aria-label="Refresh VNC">
+  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Refresh VNC</span>
+</button>
+</div>
+<br/>';
+}
+
 $buttons = '<div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Controls</h3>
@@ -31,6 +43,7 @@ $buttons = '<div class="panel panel-default">
 </button>
 </div>
 <br/>
+' . $button_restart_vnc . '
 </div>
 </div>
 <div class="panel panel-default">
@@ -89,6 +102,10 @@ function isDesktop() {
 	  });  
       }
 
+      function refreshVNC() {
+           $("#vnc").attr("src", $("#vnc").attr("src"));
+      }
+
       $( document ).ready(function() {
          $("#download").click(function() {
            document.location.href="<?php echo $DOWNLOAD_LINK; ?>";
@@ -104,10 +121,14 @@ function isDesktop() {
          });
          $("#services").click(function() {
            loadLink("services");
+           refreshVNC();
 	 });
          $("#close").click(function() {
            loadLink("close");
 	 });
+	$("#refreshvnc").click(function() {
+	   refreshVNC();
+	});
       });
     </script>
   </head>
@@ -165,6 +186,8 @@ function isDesktop() {
 
 <?php if (!isDesktop()) { 
 	echo $buttons;
+
+$("#vnc").attr("src", $("#vnc").attr("src"));
 } ?>
 <div class="text-center" id="footer">&copy; <?php echo date("Y"); ?> <a href="http://www.avidandrew.com" target="_blank">Avid Andrew</a></div>
   </body>
