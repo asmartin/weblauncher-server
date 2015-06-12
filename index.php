@@ -7,7 +7,6 @@ $buttons = '<div class="panel panel-default">
   </div>
   <div class="panel-body">
 
-<div class="col-md-4 center-block">
 <div class="row">
 <button type="button" id="sleep" class="btn btn-success center-block" aria-label="Sleep TV Streamer">
   <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
@@ -30,7 +29,6 @@ $buttons = '<div class="panel panel-default">
 <button type="button" id="reboot" class="btn btn-danger center-block" aria-label="Reboot TV Streamer">
   <span class="glyphicon glyphicon-off" aria-hidden="true">&nbsp;Reboot Viewer</span>
 </button>
-</div>
 </div>
 <br/>
 </div>
