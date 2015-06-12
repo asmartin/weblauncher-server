@@ -121,7 +121,7 @@ function isDesktop() {
          });
          $("#services").click(function() {
            loadLink("services");
-           setTimeout(refreshVNC, 3000);
+           setTimeout(refreshVNC, 5000);
 	 });
          $("#close").click(function() {
            loadLink("close");
