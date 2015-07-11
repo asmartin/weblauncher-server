@@ -148,12 +148,6 @@ function isDesktop() {
             <span class="glyphicon glyphicon-download" aria-hidden="true">&nbsp;Download App</span>
           </button>
         </div>
-	<br/>
-	<div class="row">
-          <button type="button" id="download-remote" class="btn btn-info center-block" aria-label="Download App">
-            <span class="glyphicon glyphicon-download" aria-hidden="true">&nbsp;Download Remote</span>
-          </button>
-        </div>
       </div>
       <br/>
       <?php } ?>
