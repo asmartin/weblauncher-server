@@ -179,7 +179,7 @@ function isDesktop() {
   <?php } ?>
     <ul class="list-group">
       <?php foreach ($links as $title => $url) { ?>
-      <li class="list-group-item"><a href="#" onclick="loadLink('<?php echo $url; ?>');"><?php echo $title; ?></a></li>
+      <li class="list-group-item"><a href="javascript:void();" onclick="loadLink('<?php echo $url; ?>');"><?php echo $title; ?></a></li>
       <?php } ?>
     </ul>
     </div>
