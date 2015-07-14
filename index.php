@@ -95,6 +95,17 @@ function isDesktop() {
     </style>
 
     <script type="text/javascript">
+      // focus the iframe
+      function setFocusIframe() {
+          var iframe = $("#vnc")[0];
+          iframe.contentWindow.focus();
+      }
+
+      // set the iframe focus (must be done with setTimeout)
+      function focusIframe() {
+         setTimeout(setFocusIframe, 100);
+      }
+
       function loadLink(link) {
         $.ajax({
 	  type: "POST",
@@ -102,11 +113,13 @@ function isDesktop() {
 	  data: { url: link }
 	})
 	  .done(function( msg ) {
+                focusIframe();
 	  });  
       }
 
       function refreshVNC() {
            $("#vnc").attr("src", $("#vnc").attr("src"));
+           focusIframe();
       }
 
       $( document ).ready(function() {
@@ -132,6 +145,9 @@ function isDesktop() {
 	$("#refreshvnc").click(function() {
 	   refreshVNC();
 	});
+
+        // focus on iframe so keyboard events are passed to VNC session
+        focusIframe();
       });
     </script>
   </head>
