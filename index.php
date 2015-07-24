@@ -170,7 +170,7 @@ function isDesktop() {
     <?php } ?>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"></h3>
+    <h3 class="panel-title text-center"><b>Name:</b> <?php echo $VIEWER_HOST; ?></h3>
   </div>
   <div class="panel-body">
 
