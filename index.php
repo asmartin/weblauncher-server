@@ -24,6 +24,26 @@ $buttons = '<div class="panel panel-default">
   <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
 </button>
 </div>
+
+<div class="input-group">
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-success">Sleep Viewer</button>
+    <button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="javascript:loadLink('sleep-5'")">Sleep in 5 min</a></li>
+      <li><a href="#javascript:loadLink('sleep-15')">Sleep in 15 min</a></li>
+      <li><a href="#"javascript:loadLink('sleep-30')>Sleep in 30 min</a></li>
+      <li><a href="#"javascript:loadLink('sleep-45')>Sleep in 45 min</a></li>
+      <li><a href="#"javascript:loadLink('sleep-60')>Sleep in 1 hour</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="javascript:loadLink('sleep-clear')">Clear Planned Sleep</a></li>
+    </ul>
+  </div>
+</div>
+
 <br/>
 <div class="row">
 <button type="button" id="services" class="btn btn-warning center-block" aria-label="Restart Services">
