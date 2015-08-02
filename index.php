@@ -7,7 +7,7 @@ if (isDesktop()) {
 	$button_restart_vnc = '
 <div class="row">
 <button type="button" id="refreshvnc" class="btn btn-warning center-block" aria-label="Refresh VNC">
-  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Refresh VNC</span>
+  <span class="glyphicon glyphicon-refresh" aria-hidden="true">&nbsp;Refresh VNC</span>
 </button>
 </div>
 <br/>';
@@ -20,34 +20,28 @@ $buttons = '<div class="panel panel-default">
   <div class="panel-body">
 
 <div class="row">
-<button type="button" id="sleep" class="btn btn-success center-block" aria-label="Sleep TV Streamer">
-  <span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</span>
-</button>
+          <div class="input-group-btn center-block">
+            <button type="button" class="btn btn-success" id="sleep"><span class="glyphicon glyphicon-leaf" aria-hidden="true">&nbsp;Sleep Viewer</button>
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+	      <li><a href="javascript:loadLink(\'sleep\')">Sleep Now</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-5\')">Sleep in 5 min</a></li>
+	      <li><a href="#javascript:loadLink(\'sleep-15\')">Sleep in 15 min</a></li>
+	      <li><a href="#"javascript:loadLink(\'sleep-30\')>Sleep in 30 min</a></li>
+	      <li><a href="#"javascript:loadLink(\'sleep-45\')>Sleep in 45 min</a></li>
+	      <li><a href="#"javascript:loadLink(\'sleep-60\')>Sleep in 1 hour</a></li>
+	      <li role="separator" class="divider"></li>
+	      <li><a href="javascript:loadLink(\'sleep-clear\')">Clear Planned Sleep</a></li>
+            </ul>
+          </div>
 </div>
-
-<div class="input-group">
-  <div class="input-group-btn">
-    <button type="button" class="btn btn-success">Sleep Viewer</button>
-    <button type="button" class="btn btn-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="caret"></span>
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="javascript:loadLink('sleep-5'")">Sleep in 5 min</a></li>
-      <li><a href="#javascript:loadLink('sleep-15')">Sleep in 15 min</a></li>
-      <li><a href="#"javascript:loadLink('sleep-30')>Sleep in 30 min</a></li>
-      <li><a href="#"javascript:loadLink('sleep-45')>Sleep in 45 min</a></li>
-      <li><a href="#"javascript:loadLink('sleep-60')>Sleep in 1 hour</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="javascript:loadLink('sleep-clear')">Clear Planned Sleep</a></li>
-    </ul>
-  </div>
-</div>
-
 <br/>
 <div class="row">
 <button type="button" id="services" class="btn btn-warning center-block" aria-label="Restart Services">
-  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">&nbsp;Restart Services</span>
+  <span class="glyphicon glyphicon-refresh" aria-hidden="true">&nbsp;Restart Services</span>
 </button>
 </div>
 <br/>
@@ -94,6 +88,7 @@ function isDesktop() {
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
     <style>
       h2 {
         padding-left: 10px;
@@ -109,8 +104,9 @@ function isDesktop() {
       #footer {
 	padding-bottom: 20px;
       }
-      .btn {
+      .btn, .input-group-btn {
         margin-left: 10px;
+	border-radius: 0px;
       }
     </style>
 
@@ -154,6 +150,9 @@ function isDesktop() {
          });
          $("#sleep").click(function() {
            loadLink("sleep");
+         });
+         $("#sleepdropdown").click(function() {
+           $(".dropdown-toggle").dropdown('toggle');
          });
          $("#services").click(function() {
            loadLink("services");
@@ -199,6 +198,7 @@ function isDesktop() {
       <div class="row">
     <div class="col-md-10 center-block" id="vncwrapper">
     <div style="width:<?php echo $VIEWER_VNC_WIDTH; ?>px;margin-left:auto;margin-right:auto">
+    <p class="text-center"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Keyboard not working? Click the blue bar below to capture the keyboard input</p>
   <iframe id="vnc" src="noVNC/vnc_auto.html?host=<?php echo $VIEWER_HOST; ?>&port=5901&resize=true" width="<?php echo $VIEWER_VNC_WIDTH; ?>px" height="<?php echo $VIEWER_VNC_HEIGHT; ?>px"></iframe> 
     <?php echo $buttons; ?>
     </div>
