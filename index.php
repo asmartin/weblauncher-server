@@ -27,14 +27,14 @@ $buttons = '<div class="panel panel-default">
               <span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-	      <li><a href="javascript:loadLink(\'sleep\')">Sleep Now</a></li>
-	      <li><a href="javascript:loadLink(\'sleep-5\')">Sleep in 5 min</a></li>
-	      <li><a href="#javascript:loadLink(\'sleep-15\')">Sleep in 15 min</a></li>
-	      <li><a href="#"javascript:loadLink(\'sleep-30\')>Sleep in 30 min</a></li>
-	      <li><a href="#"javascript:loadLink(\'sleep-45\')>Sleep in 45 min</a></li>
-	      <li><a href="#"javascript:loadLink(\'sleep-60\')>Sleep in 1 hour</a></li>
+	      <li><a href="javascript:loadLink(\'sleep\');">Sleep Now</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-5\');">Sleep in 5 min</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-15\');">Sleep in 15 min</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-30\');">Sleep in 30 min</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-45\');">Sleep in 45 min</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-60\');">Sleep in 1 hour</a></li>
 	      <li role="separator" class="divider"></li>
-	      <li><a href="javascript:loadLink(\'sleep-clear\')">Clear Planned Sleep</a></li>
+	      <li><a href="javascript:loadLink(\'sleep-clear\');">Clear Planned Sleep</a></li>
             </ul>
           </div>
 </div>
@@ -137,6 +137,9 @@ function isDesktop() {
 	  .done(function( msg ) {
                 focusIframe();
 	  });  
+
+	// return false to prevent scrolling back to the top of the page
+	return false;
       }
 
       function refreshVNC() {
